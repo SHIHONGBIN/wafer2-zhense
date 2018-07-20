@@ -1,0 +1,11 @@
+<!-- 组件模板 -->
+ <form bindsubmit="formSubmit">
+    <view class="textarea-wrp">
+    <!-- //一定要加name字段不然没数据 -->
+      <textarea bindblur="bindTextAreaBlur" adjust-position='true'  auto-height name="textarea1"  bindinput='checklength' placeholder='{{placeholder}}' value='{{placeholderValue}}' show-confirm-bar='true' focus=''/>
+    </view>
+     <button size='mini' disabled='{{!isdiabled}}'
+         bindtap="default2" hover-class="other-button-hover" formType="submit" > 取消 </button>
+    <button size='mini' loading="{{isloading}}" disabled='{{isdiabled}}'
+         bindtap="default" hover-class="other-button-hover" formType="submit" > 提交 </button>
+    </form>

@@ -1,0 +1,7 @@
+<!-- 组件模板 -->
+<view class="footertips">
+  以上所有素材均来源于网络，如有侵权，请联系shi410323083@gmail.com
+  <view class='suggust'>
+  copyright@2018 任何意见或建议联系上邮箱。
+  </view>
+</view>

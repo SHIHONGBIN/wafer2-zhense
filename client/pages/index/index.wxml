@@ -1,0 +1,132 @@
+<!--index.wxml-->
+<view class="container" bindtap='changeIsLeft'>
+    <view class="swiper">
+      <swiper
+        indicator-dots="true" autoplay="true" circular="false">
+        <block wx:for="{{bannerData}}">
+        <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+          <swiper-item>
+           <image src="{{item.image}}" class='slide-image' width="100%" height="100%" />
+          </swiper-item>
+         </navigator>
+        </block>
+      </swiper>
+    </view> 
+    <view class='notice-box'>
+    <view class='notice'>
+    <text class='text'>PS。</text>
+      <text class='text'>{{notice}}</text>
+    </view> 
+    </view>
+   
+  <view class='imgBox'>
+  <!-- 小小黑 -->
+   <view class="title">
+      <!-- <view class='line'></view> -->
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>{{subText1}}</text>
+      </view>
+      <!-- <view class='line'></view> -->
+    </view>
+    <view class='box'>
+    <block wx:for="{{arrayTimeLess}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+      </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view>
+<!-- 鸩 -->
+        <view class="title">
+       <!-- <view class='line'></view> -->
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>{{subText4}}</text>
+      </view>
+      <!-- <view class='line'></view> -->
+    </view>
+ <view class='box'>
+    <block wx:for="{{arrayTimeZhen}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view> 
+<!-- 天狗阵容 -->
+    <view class="title">
+       <!-- <view class='line'></view> -->
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>{{subText2}}</text>
+      </view>
+      <!-- <view class='line'></view> -->
+    </view>
+
+    <view class='box'>
+    <block wx:for="{{arrayTimeMore}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view> 
+
+  <!-- 控制阵容 -->
+       <view class="title">
+       <!-- <view class='line'></view> -->
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>{{subText3}}</text>
+      </view>
+      <!-- <view class='line'></view> -->
+    </view>
+ <view class='box'>
+    <block wx:for="{{arrayTimeControl}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view>    
+<!--上拉加载如果加载很少的东西 页面滚动条基本没变化 那么下次再上拉刷新就不会触发方法 必须手动下拉一段距离再上拉-->
+ <!-- <messages-component class='messagesComponent' pro-addArray="{{messageArray}}" wx:touchend='touchedfn' bindmyevent="myEventListener">
+</messages-component>  -->
+
+  <footertips-component  id="">
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <!-- <view>这里是插入到组件slot中的内容</view>  -->
+  </footertips-component> 
+    </view>
+</view>
+
+    <my-component  id="isLeft">
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <!-- <view>这里是插入到组件slot中的内容</view>  -->
+  </my-component>
+
+
+      
+
+

@@ -1,0 +1,31 @@
+<view class="page-body">
+  <view class="page-section">
+      <view class="page-section-title"><span></span><text class='text'>发表评论：</text><text class='textarea-tips'>(10分钟间隔)</text></view>
+      <form bindsubmit="formSubmit">
+    <view class="textarea-wrp">
+    <!-- //一定要加name字段不然没数据 -->
+      <textarea bindblur="bindTextAreaBlur" adjust-position='true'  auto-height name="textarea1"  bindinput='checklength' placeholder='{{placeholder}}' value='{{placeholderValue}}' show-confirm-bar='true'/>
+    </view>
+    <button size='mini' loading="{{isloading}}" disabled='{{isdiabled}}'
+         bindtap="default" hover-class="other-button-hover" formType="submit" > 提交 </button>
+    </form>
+  </view>
+  <view class='pagelist-box'>
+    <view class='pagelist {{item.className}}' wx:for="{{proAddArray}}">
+    <view class='l-view'><text class='p-username'>{{item.name}}：</text></view>
+    <view class='r-view'><text class='p-usertext'>{{item.text}}</text></view>
+    <view class='b-time'>
+    <!-- <view class='repay' bindtap='blockInput' wx:if='{{!inputShow}}'>回复</view> -->
+    {{item.time}}</view>
+      <view class='user-repay' wx:if='{{item.userRepay}}'>
+        <text class='usertitle'>作者回复：</text>
+        <view class='repat-text'>
+          {{item.userRepay}}
+        </view>
+      </view>
+      <!-- <textarea-component wx:if = '{{inputShow}}' bindmyevent='enventLinstener'></textarea-component> -->
+
+  </view>
+  </view>
+  </view>
+    <view class='more-text'><text class='list-tips'>{{proText}}</text></view>

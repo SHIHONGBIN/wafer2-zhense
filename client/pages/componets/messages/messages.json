@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+        "textarea-component": "../textarea/textarea"
+  }
+}

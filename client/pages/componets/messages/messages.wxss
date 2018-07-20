@@ -1,0 +1,63 @@
+textarea {
+  padding: 10rpx 5rpx;
+  background-color: #FaFFFc;
+  border: solid 1px rgba(155,213,234,.5);
+  border-radius: 6px;
+  margin: 0 10px;
+  width:auto;
+}
+
+.textarea-wrp {
+  background-color: #fff;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  zoom:1
+}
+
+.page-section:last-child{
+  margin-bottom: 0;
+}
+.page-body{
+  overflow: hidden;zoom:1;width: 100%;display: block;
+}
+.page-section-title{
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: solid 1px rgba(155,213,234,.5);
+  padding-top: 5rpx;
+}
+.other-button-hover{opacity: .6}
+.page-section-title span{width: 6px; height: 6px; background-color: rgba(155,213,234,1); display: inline-block;margin-right: 10rpx; transform: rotate(45deg);vertical-align: middle;}
+.page-section-title .text{display: inline-block; vertical-align: middle;}
+ button{padding:0 15rpx; float: right; line-height: 1.5; margin-right: 10px; margin-top: 5px; font-size: 20px;background-color: rgba(155,213,234,1);color:#fff;} 
+.textarea-placeholder{font-size: 16px; color:rgba(155,213,234,.7)}
+.p-username{font-size: 12px;margin-left: 10px;  vertical-align: top; display: inline-block;}
+.pagelist-box{border-top: solid 1px rgba(155,213,234,1);font-size: 0;width: 100%;}
+.p-usertext{ font-size: 12px;padding: 0 10px 0 0;  vertical-align: top; display: inline-block;} 
+.pagelist-box .pagelist{background-color:rgba(155,213,234,.2); padding: 10rpx 0; overflow: hidden; zoom:1;color:#666;font-size: 0}
+.pagelist-box .pagelist:nth-child(odd){background-color:rgba(155,213,234,.1);color:#444}
+.l-view{display:block; font-size: 14px;}
+.r-view{display: block; font-size: 14px;padding-left: 10px;}
+.b-time{text-align: right; font-size: 12px;color:#999;padding-right: 10px; vertical-align: top}
+.more-text{padding:  10px 0;display: block; text-align: center; font-size: 0; }
+.list-tips{ display: inline-block; font-size: 14px;color:rgba(155,213,234,.7)}
+.list-tips::before{content: ''; display: inline-block;vertical-align: middle;height: 1px;width: 60px;overflow: hidden;background-color: rgba(155,213,234,.5); margin-right: 5px}
+.list-tips::after{content: ''; display: inline-block;vertical-align: middle;height: 1px;width: 60px;overflow: hidden;background-color: rgba(155,213,234,.5); margin-left: 5px;}
+.ssr-box .l-view .p-username,.ssr-box .r-view .p-usertext{color:#e16229}
+.sr-box .l-view .p-username,.sr-box .r-view .p-usertext{color: #7d09b8}
+.r-box .l-view .p-username,.r-box .r-view .p-usertext{color:#0a5ab3}
+.n-box .l-view .p-username,.n-box .r-view .p-usertext{color: #818184}
+.ssn-box .l-view .p-username,.ssn-box .r-view .p-usertext{color:#247558}
+.textarea-tips{color:#999; font-size: 12px;}
+.repay{ display: inline-block; margin-right: 10px; color:rgba(155,213,234,.8)}
+.user-repay{ font-size: 12px; margin:0 20px; color:#666; border-top: solid 1px  rgba(155,213,234,.2);margin-top: 5px; line-height: 22px}
+.repat-text{ display: inline-block;vertical-align: middle}
+.user-repay .usertitle{ display: inline-block; vertical-align: middle}
+.user-repay .usertitle::before{ display: inline-block; content: ''; background-color: rgba(155,213,234,1);width: 2px; height: 12px; overflow: hidden; margin-right: 3px;vertical-align:middle}

@@ -1,0 +1,112 @@
+<!-- 组件模板 -->
+<view class="wrapper">
+  <view class='text-box'>
+  <text  size="20" 
+        class="other-button-hover" bindtap='slideLeft' wx:if='{{!isleft}}'>
+    <text class='text1'></text>
+     <text class='text1 text2'></text>      
+   </text>
+   </view>
+   <view   catchtouchmove="true">
+     <scroll-view scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class='scroll-view {{isleft ? "animatedLeft":"left"}}'>
+     <!-- 小小黑 -->
+   <view class="title">
+      <view class='text'>
+      <text>{{subText11}}</text>
+      </view>
+      <view class='icon-sanjiao'>
+      </view>
+    </view>
+  <view class='box'>
+    <block wx:for="{{arrayTimeLess}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+
+
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+
+      </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+      </view>
+
+    <!-- 鸩 -->
+        <view class="title">
+       <!-- <view class='line'></view> -->
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>{{subText14}}</text>
+      </view>
+      <!-- <view class='line'></view> -->
+    </view>
+ <view class='box'>
+    <block wx:for="{{arrayTimeZhen}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view>
+<!-- 天狗荒 -->
+       <view class="title">
+      <view class='text'>
+      <text>{{subText12}}</text>
+      </view>
+      <view class='icon-sanjiao'>
+      </view>
+    </view>
+     <view class='box'>
+       <block wx:for="{{arrayTimeMore}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+      </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view>
+  <!-- 控制 -->
+        <view class="title">
+      <view class='text'>
+      <text>{{subText13}}</text>
+      </view>
+      <view class='icon-sanjiao'>
+      </view>
+    </view>
+     <view class='box'>
+       <block wx:for="{{arrayTimeControl}}">    
+      <view class="section__ctn">
+      <view class='imgbox'>
+      <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+      </navigator>
+      </view>
+      <view class="section__title">{{item.text}}</view>
+      </view>
+      </block>
+  </view>
+
+
+
+   
+</scroll-view>
+</view>
+  <slot></slot>
+</view>
+
+<view class='componetbg' bindtap='textBoxhide' wx:if="{{isshow}}" catchtouchmove='preventTouchMove'>
+</view>

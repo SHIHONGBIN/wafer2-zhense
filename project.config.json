@@ -1,0 +1,44 @@
+{
+	"client": "./client",
+	"svr": "./server",
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"appid": "wxf9f497c913e848aa",
+	"projectname": "%E7%9C%9F%E8%9B%87-%E5%A2%9E%E5%8A%A0%E5%9B%9E%E5%A4%8D",
+	"libVersion": "2.1.3",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "sss",
+					"pathName": "pages/logs/logs",
+					"query": ""
+				}
+			]
+		}
+	}
+}
