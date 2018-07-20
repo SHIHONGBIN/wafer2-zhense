@@ -1,0 +1,108 @@
+<!--logs.wxml-->
+<view class="container" bindtap='changeIsLeft'>
+<view class='pageCon' wx:if='{{isLshow}}'>
+   <view class="title"  wx:if='{{ArryListYYS.length}}'>
+      <view class='text-icon'></view>
+      <view class='text'>
+        <text>阴阳师（{{ArryListYYS.length}}只）</text>
+      </view>
+    </view>
+
+
+    <view class='itemBox-wrap1 itemBox-wrap'>
+  <block wx:for='{{ArryListYYS}}'>
+      <view class='itembox'>
+        <view class='num'>{{index+1}}</view>
+        <image class='img1'  src="{{item.image1}}"></image>
+        <image class='img2'  src="{{item.image2}}"></image>
+        <image class='img2'  src="{{item.image3}}"></image>
+        <view class='text'>
+          <text class='text1 text-sub'>{{item.text1}}</text>
+          <text class='text2 text-sub'>{{item.text2}}</text>
+        </view>
+      </view>
+  </block>
+  </view>
+    <view class="title" wx:if='{{ArryListSS.length}}'>
+     <view class='text-icon'></view>
+      <view class='text'>
+      <text>弑神（最少{{ArryListSS.length}}只）</text>
+      </view>
+    </view>
+     <view class='itemBox-wrap'>
+     <block wx:for='{{ArryListSS}}'>
+      <view class='itembox'>
+        <view class='num'>{{index+1}}</view>
+        <image class='img1'  src="{{item.image1}}"></image>
+        <image class='img2'  src="{{item.image2}}"></image>
+        <view class='text'>
+          <text class='text1 text-sub'>{{item.text1}}</text>
+          <text class='text2 text-sub'>{{item.text2}}</text>
+          <text class='text3 text-sub'>{{item.text3}}</text>
+          <text class='text3 text-sub'>{{item.text4}}</text>
+        </view>
+      </view>
+  </block>
+  </view>
+
+</view>
+<view class='pageCon pageCon1' wx:if='{{isRshow}}'>
+  <block wx:for="{{floorArry}}">
+  <view class='itembox'>
+    <view class='num itembox-con'> <view class='text-icon'></view>
+    第{{index+1}}层
+    <view class='text-icon text-icon2'></view>
+    </view>
+    <view class='clear'></view>
+    <view class='imgbox  itembox-con'>
+      <view class='imgtips'>出战人员</view>
+      <image class='img' src='{{item.image1}}'></image>
+      <image class='img' src='{{item.image2}}'></image>
+      <image class='img' src='{{item.image3}}'></image>
+      <image class='img' src='{{item.image4}}'></image>
+      <image class='img' src='{{item.image5}}'></image>
+      <image class='img' src='{{item.image6}}'></image>
+      <image class='img' src='{{item.image7}}'></image>
+    </view>
+     <view class='clear'></view>
+    <view class='killsort  itembox-con'>
+    <view class='imgtips'>击杀顺序</view>
+    <view class='killsort-con'>{{item.text1}}</view>
+    </view>
+     <view class='clear'></view>
+    <view class='tips  itembox-con'>
+    <view class='imgtips'>注意事项</view>
+    <view class='killsort-con'>{{item.text2}}</view>
+    </view>
+     <view class='clear'></view>
+    </view>
+  </block>
+    <!-- <footertips-component  id=""  wx:if='{{isRshow}}'> -->
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <!-- <view>这里是插入到组件slot中的内容</view>  -->
+  <!-- </footertips-component> -->
+  <!--上拉加载如果加载很少的东西 页面滚动条基本没变化 那么下次再上拉刷新就不会触发方法 必须手动下拉一段距离再上拉-->
+
+</view>
+
+
+ <messages-component class='messagesComponent {{iphonexcss}}' pro-addArray="{{messageArray}}"  bindmyevent="myEventListener" pro-text='{{texttips}}' pro-title='{{curPageTitle}}'>
+</messages-component> 
+
+<view class='footerNav {{iphonexcss}}'>
+<view class='footerbox'>
+  <view class='l-nav {{isLshow ? "curHover":"nothover"}}' bindtap='lshow'>详细阵容</view>
+  <view class='r-nav {{isRshow ? "curHover":"nothover"}}' bindtap='rshow'>每层打法</view>
+  </view>
+</view>
+
+
+</view>
+
+
+  
+
+  <my-component  id="isLeft">
+    <!-- 这部分内容将被放置在组件 <slot> 的位置上 -->
+     <!-- <view>这里是插入到组件slot中的内容</view>  -->
+  </my-component>
