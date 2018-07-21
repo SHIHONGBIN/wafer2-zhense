@@ -126,6 +126,8 @@
      <!-- <view>这里是插入到组件slot中的内容</view>  -->
   </my-component>
 
+  <tabBar-component sub-url='{{curUrl}}'></tabBar-component>
+
 
       
 

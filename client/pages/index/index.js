@@ -20,7 +20,9 @@ Page({
       //上拉加载数组
       messageArray:[],
       page:1,
-      pullUpBool:true
+      pullUpBool:true,
+      //url
+      curUrl:''
   },
     onLaunch:function(){
     wx.clearStorage();
@@ -71,6 +73,9 @@ Page({
   //   })
   // },
   onLoad: function(){
+    this.setData({
+      curUrl:this.route
+    })
     var that = this;
     wx.request({
       url: defalutUrl,

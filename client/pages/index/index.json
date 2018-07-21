@@ -2,7 +2,8 @@
   "usingComponents": {
     "my-component": "../componets/slideNav/slideNav",
     "footertips-component": "../componets/footertips/footertips",
-    "messages-component": "../componets/messages/messages"
+    "messages-component": "../componets/messages/messages",
+    "tabBar-component":"../componets/tabBar/tabBar"
   },
   "enablePullDownRefresh": true
 }

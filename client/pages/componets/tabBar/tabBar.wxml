@@ -1,0 +1,6 @@
+<view class="tabBar-box">
+<view class='tabBar-box-con'>
+<view class='tabBar-con {{isLshow ? "curHover":"nothover"}}' bindtap='addClassLeft'>真蛇</view>
+<view class='tabBar-con {{isRshow ? "curHover":"nothover"}}' bindtap='addClassRight'>逢魔</view>
+</view>
+</view>
