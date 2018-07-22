@@ -10,7 +10,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    "isLshow":false,
+    "isLshow":true,
     "isRshow":false
   },
   /**
