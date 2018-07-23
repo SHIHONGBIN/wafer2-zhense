@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    subUrl:String
+    subUrl:String,
+    subTitle:String
   },
   /**
    * 组件的初始数据
@@ -26,21 +27,30 @@ Component({
         "isLshow":true,
         "isRshow": false,
       })
-      this.testUrl('pages/index/index')
+      // this.testUrl('/pages/index/index')
     },
     addClassRight: function () {
       this.setData({
         "isRshow": true,
         "isLshow": false
-      })
+      });
+      // this.testUrl('/pages/fengm/fengm')
     },
-    testUrl: function (url){
-      if (this.data.subUrl != url){
-        var newUekl = url.split('/');
-wx.navigateTo({
-  url: newUekl[newUekl.length-1],
-})
-      }
-    }
+//     testUrl: function (url){
+//       if ('/'+this.data.subUrl != url){
+//         var newUekl = url.split('/');
+// wx.navigateTo({
+//   url: url,
+// })
+//       }
+//     }
+  },
+  ready: function () {
+// if(this.data.subTitle == '逢魔'){
+//   this.setData({
+//     "isRshow": true,
+//     "isLshow": false
+//   });
+// }
   }
 })

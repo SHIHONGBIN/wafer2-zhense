@@ -1,0 +1,1 @@
+<tabBar-component sub-url='{{curUrl}}' sub-title='{{curtitle}}'></tabBar-component>

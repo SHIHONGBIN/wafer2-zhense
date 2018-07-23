@@ -23,10 +23,10 @@
       <view class='imgbox'>
       <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
 
-        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
 
 
-        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
 
       </navigator>
       </view>
@@ -49,8 +49,8 @@
       <view class="section__ctn">
       <view class='imgbox'>
       <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
-        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
-        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
         </navigator>
       </view>
       <view class="section__title">{{item.text}}</view>
@@ -70,8 +70,8 @@
       <view class="section__ctn">
       <view class='imgbox'>
       <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
-        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
-        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
       </navigator>
       </view>
       <view class="section__title">{{item.text}}</view>
@@ -91,8 +91,8 @@
       <view class="section__ctn">
       <view class='imgbox'>
       <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
-        <image style="width: 50px; height: 50px;"  src="{{item.image1}}"></image>
-        <image style="width: 50px; height: 50px;"  src="{{item.image2}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
+        <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
       </navigator>
       </view>
       <view class="section__title">{{item.text}}</view>

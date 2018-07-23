@@ -48,30 +48,6 @@ Page({
       url: '../index/index',
     })
   },
-  // formateDate:function(contact){
-  //     var data = new Date();
-  //     var y = data.getFullYear();
-  //     var mo = data.getMonth() * 1 + 1;
-  //     var d = data.getDate();
-  //     var h = data.getHours();
-  //     var mi = data.getMinutes();
-  //     var s = data.getSeconds();
-  //     return y + contact + mo + contact + d + ' ' + ' ' + h + ':' + mi + ':' + s
-  // },
-  // myEventListener: function (e) {
-  //   // console.log(e.detail)
-  //   var obj = {
-  //     id:0,
-  //     name:'张三',
-  //     text:e.detail.data,
-  //     time: this.formateDate('-')
-  //   };
-  //   var arr = this.data.messageArray;
-  //   arr.unshift(obj);
-  //   this.setData({
-  //     messageArray: arr
-  //   })
-  // },
   onLoad: function(){
     this.setData({
       curUrl:this.route
@@ -86,30 +62,8 @@ Page({
       data:{},
       success:function(res){
         // console.log(res.data.data)
-        var data = res.data.data.res;
-        var fastArr = [];
-        var normalArr = [];
-        var controlArr = [];
-        var fanjiZhen = [];
-        for(var i = 0; i < data.length; i++){
-          if(data[i].name == 'fast'){
-            fastArr.push(data[i])
-          } else if (data[i].name == 'control'){
-            controlArr.push(data[i])
-          } else if (data[i].name == 'zhen'){
-            fanjiZhen.push(data[i])
-          }else{
-            normalArr.push(data[i])
-          }
-        };
-        //成功之后绑定数据
-        that.setData({
-          arrayTimeLess: fastArr,
-          arrayTimeMore: normalArr,
-          arrayTimeControl: controlArr,
-          arrayTimeZhen: fanjiZhen,
-          bannerData: res.data.data.bannerdata
-        });
+        //获取数据
+        that.getArratData(res)
         //增加notice 只增加最后一条
         var notices = res.data.data.notice;
         that.setData({
@@ -140,36 +94,11 @@ Page({
     // 发送请求  
     wx.request({
       url: url,
-      // data: {
-      //   user_id: user_id,
-      // },
       method: 'GET', 
       //请求成功的函数处理  
       success: function (res) {
-        var data = res.data.data.res;
-        var fastArr = [];
-        var normalArr = [];
-        var controlArr = [];
-        var fanjiZhen = [];
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].name == 'fast') {
-            fastArr.push(data[i])
-          } else if (data[i].name == 'control') {
-            controlArr.push(data[i])
-          } else if (data[i].name == 'zhen') {
-            fanjiZhen.push(data[i])
-          } else {
-            normalArr.push(data[i])
-          }
-        };
-        //成功之后绑定数据
-        that.setData({
-          arrayTimeLess: fastArr,
-          arrayTimeMore: normalArr,
-          arrayTimeControl: controlArr,
-          arrayTimeZhen: fanjiZhen,
-          bannerData: res.data.data.bannerdata
-        });
+        //获取数据
+        that.getArratData(res)
       },
       fail: function (res) {                             //请求失败的处理  
         console.log(res.data.msg);
@@ -184,95 +113,30 @@ Page({
       } 
     })
   },
-  //上拉加载
-  // onReachBottom: function () {
-  //   let that = this;
-  //   if (that.data.pullUpBool == true) {
-  //     that.setData({
-  //       pullUpBool: false
-  //     });
-      
-  //     setTimeout(function () {
-  //       that.setData({
-  //         pullUpBool: true
-  //       });
-  //     }, 1000)
-  //   // wx.stopReachBottom(); 
-  //     var page = that.data.page;
-    
-  //   //根据实际情况定义请求的路径  
-  //   let url = 'https://qe9zcrno.qcloud.la/weapp/textaresSubmit?page=' + page;
-    
-  //   wx.showLoading({
-  //     title:'努力加载中'
-  //   });
-    
-  //   // 发送请求  
-  //   wx.request({
-  //     url: url,
-  //     method: 'GET',
-  //     //请求成功的函数处理  
-  //     success: function (res) {
-  //       var newArray = res.data.data.res;
-  //         if (newArray.length == 0) {
-  //           wx.showLoading({
-  //             title: '没有了。。。'
-  //           });
-  //           setTimeout(function () {
-  //             wx.hideLoading();
-  //           }, 500)
-  //         } else {
-  //           var messageArray = that.data.messageArray;
-  //           if (newArray.length == 5){
-  //             that.setData({
-  //               page: page + 1
-  //             });
-  //           }
-  //           //防止重复加入数组 删除重复数据
-  //           //第一次进去空的 所以全部加载循环
-  //           if (messageArray.length==0){
-  //             for (var i = 0; i < newArray.length; i++) {
-  //                   messageArray.push(newArray[i])
-  //             }
-  //             messageArray.reverse();
-  //           }else{
-  //             var newarr = [];
-  //             for (var i = 0; i < newArray.length; i++) {
-  //               var length = 0;
-  //               for (var j = 0; j < messageArray.length; j++) {
-  //                 if (newArray[i].id != messageArray[j].id) {
-  //                   length++;
-  //                 }
-  //               }
-  //               if (length == messageArray.length){
-  //                 newarr.push(newArray[i])
-  //               }
-  //             }
-  //             if (newarr.length == 0) {
-  //               wx.showLoading({
-  //                 title: '没有了'
-  //               });
-  //               setTimeout(function () {
-  //                 wx.hideLoading();
-  //               }, 800)
-  //             }
-  //             newarr.reverse();
-  //             for (var i = 0; i < newarr.length; i++) {
-  //               messageArray.push(newarr[i])
-  //             }
-  //           }
-  //           //成功之后绑定数据
-  //           that.setData({
-  //             messageArray: messageArray
-  //           });
-
-  //           wx.hideLoading();
-  //         }  
-  //     },
-  //     fail: function (res) {                             //请求失败的处理  
-  //       console.log(res.data.msg);           
-  //     }
-  //   })
-  //   }
-  // }
+  getArratData: function(res){
+    var data = res.data.data.res;
+    var fastArr = [];
+    var normalArr = [];
+    var controlArr = [];
+    var fanjiZhen = [];
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].name == 'fast') {
+        fastArr.push(data[i])
+      } else if (data[i].name == 'control') {
+        controlArr.push(data[i])
+      } else if (data[i].name == 'zhen') {
+        fanjiZhen.push(data[i])
+      } else {
+        normalArr.push(data[i])
+      }
+    };
+    //成功之后绑定数据
+    this.setData({
+      arrayTimeLess: fastArr,
+      arrayTimeMore: normalArr,
+      arrayTimeControl: controlArr,
+      arrayTimeZhen: fanjiZhen,
+      bannerData: res.data.data.bannerdata
+    });
+  }
 })
