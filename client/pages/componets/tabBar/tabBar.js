@@ -27,30 +27,30 @@ Component({
         "isLshow":true,
         "isRshow": false,
       })
-      // this.testUrl('/pages/index/index')
+      this.testUrl('/pages/index/index')
     },
     addClassRight: function () {
       this.setData({
         "isRshow": true,
         "isLshow": false
       });
-      // this.testUrl('/pages/fengm/fengm')
+      this.testUrl('/pages/fengm/fengm')
     },
-//     testUrl: function (url){
-//       if ('/'+this.data.subUrl != url){
-//         var newUekl = url.split('/');
-// wx.navigateTo({
-//   url: url,
-// })
-//       }
-//     }
+    testUrl: function (url){
+      if ('/'+this.data.subUrl != url){
+        var newUekl = url.split('/');
+wx.navigateTo({
+  url: url,
+})
+      }
+    }
   },
   ready: function () {
-// if(this.data.subTitle == '逢魔'){
-//   this.setData({
-//     "isRshow": true,
-//     "isLshow": false
-//   });
-// }
+if(this.data.subTitle == '逢魔'){
+  this.setData({
+    "isRshow": true,
+    "isLshow": false
+  });
+}
   }
 })

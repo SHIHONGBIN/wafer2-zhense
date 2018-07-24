@@ -5,7 +5,15 @@ Page({
   data: {
     topNavtitle:'逢魔',
     curtitle:'',
-    curUrl:''
+    curUrl:'',
+    //获取数据
+    fengmTable:[],
+    fengmId: '',
+    fengmPepole: '',
+    fengmYuhun1: '',
+    fengmYuhun2: '',
+    fengmSudu: '',
+    fengmTips: ''
   },
   onLaunch: function () {
     wx.clearStorage();
@@ -20,10 +28,11 @@ Page({
     var that = this;
     //设置路由路径
     this.setData({
-      curUrl: this.route
+      curUrl: this.route,
+      curtitle: that.data.topNavtitle
     })
     wx.request({
-      url: defalutUrl,
+      url: defalutUrl+'fengm',
       header: {
         'content-type': 'application/json'
         // 默认值
@@ -31,19 +40,13 @@ Page({
       data: {},
       success: function (res) {
         // console.log(res.data.data)
-        //获取数据
-        that.getArratData(res)
-        //增加notice 只增加最后一条
-        var notices = res.data.data.notice;
-        that.setData({
-          notice: notices[notices.length - 1].text
-        })
+  //处理数据
+        that.getArrayData(res.data.data.res)
+
         wx.setNavigationBarTitle({
           title: that.data.topNavtitle,
         });
-        that.setData({
-          curtitle: that.data.topNavtitle
-        })
+
       },
       error: function (a) {
         console.log(a);
@@ -85,30 +88,35 @@ Page({
       }
     })
   },
-  getArratData: function (res) {
-    var data = res.data.data.res;
-    var fastArr = [];
-    var normalArr = [];
-    var controlArr = [];
-    var fanjiZhen = [];
+  getArrayData: function (res) {
+    var data = res;
+    var fengmTable=[];
     for (var i = 0; i < data.length; i++) {
-      if (data[i].name == 'fast') {
-        fastArr.push(data[i])
-      } else if (data[i].name == 'control') {
-        controlArr.push(data[i])
-      } else if (data[i].name == 'zhen') {
-        fanjiZhen.push(data[i])
-      } else {
-        normalArr.push(data[i])
+      var obj = {
+        id: i,
+        name: data[i].name,
+        pepole1: data[i].pepole1.split(','),
+        pepole2:data[i].pepole2.split(','),
+        yuhun1: data[i].yuhun1.split(','),
+        yuhun2: data[i].yuhun2.split(','),
+        sudu: data[i].sudu.split(','),
+        tips: data[i].tips.split('。')
       }
+      fengmTable.push(obj)
     };
-    //成功之后绑定数据
+    
     this.setData({
-      arrayTimeLess: fastArr,
-      arrayTimeMore: normalArr,
-      arrayTimeControl: controlArr,
-      arrayTimeZhen: fanjiZhen,
-      bannerData: res.data.data.bannerdata
-    });
+      fengmTable: fengmTable
+    })
+
+    console.log(this.data.fengmTable)
+    //成功之后绑定数据
+    // this.setData({
+    //   arrayTimeLess: fastArr,
+    //   arrayTimeMore: normalArr,
+    //   arrayTimeControl: controlArr,
+    //   arrayTimeZhen: fanjiZhen,
+    //   bannerData: res.data.data.bannerdata
+    // });
   }
 })

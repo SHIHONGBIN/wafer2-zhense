@@ -1,1 +1,61 @@
+
+<view class='fm-box'>
+   <view class="title">
+       <view class='text-icon'></view>
+      <view class='text'>
+      <text>逢魔阵容</text>
+      </view>
+    </view>
+    <block wx:for='{{fengmTable}}'>
+    <view class='table1'>
+<text class='sub-title'>{{item.name}}</text>
+<view class='table-title title1'>
+  <view class='text1'></view>
+    <block wx:for='{{item.pepole1}}'>
+  <view class='text1'>{{item}}</view>
+  </block>
+</view>
+<view class='table-title title2'>
+  <view class='text1'>弑神</view>
+  <block wx:for='{{item.pepole2}}'>
+  <view class='text1'><image src='{{item}}'></image></view>
+</block>
+</view>
+<view class='table-title title2'>
+  <view class='text1'>御魂</view>
+  <block wx:for='{{item.yuhun1}}'>
+  <view class='text1'>
+  <image src='{{item}}' wx:if='{{item}}'></image>
+  <text wx:if='{{!item}}'>--</text>
+  </view>
+</block>
+</view>
+<view class='table-title title3'>
+  <view class='text1'>御魂</view>
+  <block wx:for='{{item.yuhun2}}'>
+  <view class='text1'>{{item}}</view>
+  </block>
+</view>
+<view class='table-title title3'>
+  <view class='text1'>速度</view>
+ <block wx:for='{{item.sudu}}'>
+  <view class='text1'>{{item}}</view>
+  </block>
+</view>
+    <view class='notice-box'>
+    <view class='notice'>
+    <view class='text'>备注:</view>
+      <view class='text'>
+      <block wx:for='{{item.tips}}'>
+      <text>{{index+1}}. {{item}}</text>
+      </block>
+      </view>
+    </view> 
+    </view>
+</view>
+</block>
+</view>
+
+
+
 <tabBar-component sub-url='{{curUrl}}' sub-title='{{curtitle}}'></tabBar-component>

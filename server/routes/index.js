@@ -37,4 +37,5 @@ router.get('/', controllers.logs)
 router.get('/pages/logs/logs/', controllers.logsSubpage)
 router.post('/textaresSubmit', controllers.textaresSubmit.post)
 router.get('/textaresSubmit', controllers.textaresSubmit.get)
+router.get('/fengm', controllers.fengm)
 module.exports = router;
