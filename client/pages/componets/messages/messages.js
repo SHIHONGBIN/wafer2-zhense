@@ -69,17 +69,17 @@ Component({
         key: that.data.proTitle,
         success: function (res) {
           // console.log(res.data)
-          //10分钟之后才能继续留言
-          // if ((Date.now() - res.data) / 1000 / 60 <= 10) {
-          //   wx.showLoading({
-          //     title: '请休息一下！'
-          //   });
-          //   setTimeout(function () {
-          //     wx.hideLoading()
-          //   }, 600)
-          // } else {
+          // 10分钟之后才能继续留言
+          if ((Date.now() - res.data) / 1000 / 60 <= 10) {
+            wx.showLoading({
+              title: '请休息一下！'
+            });
+            setTimeout(function () {
+              wx.hideLoading()
+            }, 600)
+          } else {
             that.requestFn();
-          // }
+          }
         },
         fail:function(){
           wx.setStorage({

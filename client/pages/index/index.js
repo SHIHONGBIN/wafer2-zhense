@@ -68,11 +68,6 @@ Page({
         // console.log(res.data.data)
         //获取数据
         that.getArratData(res)
-        //增加notice 只增加最后一条
-        var notices = res.data.data.notice;
-        that.setData({
-          notice: notices[notices.length - 1].text
-        })
         wx.setNavigationBarTitle({
           title: that.data.topNavtitle,
         })
@@ -87,6 +82,8 @@ Page({
   onPullDownRefresh: function () {
     //清除缓存
     wx.clearStorage();
+    //init data
+    this.initArrData();
     // 动态设置导航条标题  
     wx.setNavigationBarTitle({
       title: '正在加载'
@@ -118,6 +115,16 @@ Page({
       } 
     })
   },
+  initArrData:function(){
+    this.setData({
+      arrayTimeLess: [],
+      arrayTimeMore: [],
+      arrayTimeControl: [],
+      arrayTimeZhen: [],
+      bannerData: [],
+      notice:[]
+    });
+  },
   getArratData: function(res){
     var data = res.data.data.res;
     var fastArr = [];
@@ -135,13 +142,17 @@ Page({
         normalArr.push(data[i])
       }
     };
+    //增加notice 只增加最后一条
+    var notices = res.data.data.notice;
     //成功之后绑定数据
     this.setData({
       arrayTimeLess: fastArr,
       arrayTimeMore: normalArr,
       arrayTimeControl: controlArr,
       arrayTimeZhen: fanjiZhen,
-      bannerData: res.data.data.bannerdata
+      bannerData: res.data.data.bannerdata,
+      notice: notices[notices.length - 1].text
     });
+
   }
 })

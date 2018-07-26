@@ -23,17 +23,17 @@ Component({
     //点击父组件变成了点击子组件这个方法可以去掉
     addClassLeft:function(){
       // this.data.subUrl)
-      this.setData({
-        "isLshow":true,
-        "isRshow": false,
-      })
+      // this.setData({
+      //   "isLshow":true,
+      //   "isRshow": false,
+      // })
       this.testUrl('/pages/index/index')
     },
     addClassRight: function () {
-      this.setData({
-        "isRshow": true,
-        "isLshow": false
-      });
+      // this.setData({
+      //   "isRshow": true,
+      //   "isLshow": false
+      // });
       this.testUrl('/pages/fengm/fengm')
     },
     testUrl: function (url){
