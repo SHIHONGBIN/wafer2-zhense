@@ -4,11 +4,20 @@
       <swiper
         indicator-dots="true" autoplay="true" circular="false">
         <block wx:for="{{bannerData}}">
-        <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+        <block wx:if="{{item.text == '逢魔'}}">
+         <navigator url="/pages/fengm/fengm"hover-class="navigator-hover">
           <swiper-item>
            <image src="{{item.image}}" class='slide-image' width="100%" height="100%" />
           </swiper-item>
          </navigator>
+        </block>
+        <block wx:else>  
+        <navigator url="/pages/logs/logs?title={{item.text}}"hover-class="navigator-hover">
+          <swiper-item>
+           <image src="{{item.image}}" class='slide-image' width="100%" height="100%" />
+          </swiper-item>
+         </navigator> 
+         </block>
         </block>
       </swiper>
     </view> 

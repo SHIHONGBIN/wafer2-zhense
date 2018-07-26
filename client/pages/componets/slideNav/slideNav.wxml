@@ -29,6 +29,10 @@
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
 
       </navigator>
+       <block wx:if='{{item.status}}'>
+        <text class='text-icon-tips {{item.status}}'>{{item.status}}</text>
+        </block>
+
       </view>
       <view class="section__title">{{item.text}}</view>
       </view>
@@ -52,6 +56,9 @@
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
         </navigator>
+              <block wx:if='{{item.status}}'>
+        <text class='text-icon-tips {{item.status}}'>{{item.status}}</text>
+        </block>
       </view>
       <view class="section__title">{{item.text}}</view>
       </view>
@@ -73,6 +80,9 @@
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
       </navigator>
+            <block wx:if='{{item.status}}'>
+        <text class='text-icon-tips {{item.status}}'>{{item.status}}</text>
+        </block>
       </view>
       <view class="section__title">{{item.text}}</view>
       </view>
@@ -94,6 +104,9 @@
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image1}}"></image>
         <image style="width: 50px; height: 50px;" class='yys-img'  src="{{item.image2}}"></image>
       </navigator>
+            <block wx:if='{{item.status}}'>
+        <text class='text-icon-tips {{item.status}}'>{{item.status}}</text>
+        </block>
       </view>
       <view class="section__title">{{item.text}}</view>
       </view>

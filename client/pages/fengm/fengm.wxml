@@ -54,6 +54,8 @@
     </view>
 </view>
 </block>
+ <messages-component class='messagesComponent {{iphonexcss}}' pro-addArray="{{messageArray}}"  bindmyevent="myEventListener" pro-text='{{texttips}}' pro-title='{{curtitle}}'>
+</messages-component> 
 </view>
 
 

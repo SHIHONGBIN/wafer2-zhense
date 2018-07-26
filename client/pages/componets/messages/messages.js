@@ -35,6 +35,10 @@ Component({
   /**
    * 组件的方法列表
    */
+  ready:function(){
+    // console.log(1)
+    // console.log(this)
+  },
   methods: {
     formateDate: function (contact) {
       var data = new Date();
@@ -66,16 +70,16 @@ Component({
         success: function (res) {
           // console.log(res.data)
           //10分钟之后才能继续留言
-          if ((Date.now() - res.data) / 1000 / 60 <= 10) {
-            wx.showLoading({
-              title: '请休息一下！'
-            });
-            setTimeout(function () {
-              wx.hideLoading()
-            }, 600)
-          } else {
+          // if ((Date.now() - res.data) / 1000 / 60 <= 10) {
+          //   wx.showLoading({
+          //     title: '请休息一下！'
+          //   });
+          //   setTimeout(function () {
+          //     wx.hideLoading()
+          //   }, 600)
+          // } else {
             that.requestFn();
-          }
+          // }
         },
         fail:function(){
           wx.setStorage({
@@ -91,46 +95,90 @@ Component({
       wx.showLoading({
         title: '正在提交'
       });
-      wx.request({
-        url: defalutUrl+'/textaresSubmit?name=' + that.data.proTitle,
-        header: {
-          'Content-Type': 'application/json'
-        },
-        data: { id: 0, name: that.data.name, text: that.data.data, time: that.formateDate('-'), className: that.data.words + '-box' ,userRepay:''},
-        method: 'POST',
-        success: function (res) {
-          // console.log(res.data.data)
-          that.setData({
-            placeholderValue: ''
-          })
-          that.setData({
-            isdiabled: true
-          })
+      if(that.data.proTitle == '逢魔'){
+        wx.request({
+          url: defalutUrl + 'fengm',
+          header: {
+            'Content-Type': 'application/json'
+          },
+          data: { id: 0, name: that.data.name, text: that.data.data, time: that.formateDate('-'), className: that.data.words + '-box', userRepay: '' },
+          method: 'POST',
+          success: function (res) {
+            console.log(res.data.data)
+            that.setData({
+              placeholderValue: ''
+            })
+            that.setData({
+              isdiabled: true
+            })
 
-          // console.log(res.data.data.res)
-          wx.showToast({
-            title: '提交成功'
-          })
-          setTimeout(function () {
-            wx.hideToast();
-            wx.hideLoading()
-          }, 500)
-          //子组件给父组件传值
-          var myEventDetail = { data: that.data.data, name: that.data.name, className: that.data.words + '-box' } // detail对象，提供给事件监听函数
-          var myEventOption = {} // 触发事件的选项
-          that.triggerEvent('myevent', myEventDetail, myEventOption)
-        },
-        error: function () {
-          wx.showToast({
-            title: '提交失败'
-          })
+            // console.log(res.data.data.res)
+            wx.showToast({
+              title: '提交成功'
+            })
+            setTimeout(function () {
+              wx.hideToast();
+              wx.hideLoading()
+            }, 500)
+            //子组件给父组件传值
+            var myEventDetail = { data: that.data.data, name: that.data.name, className: that.data.words + '-box' } // detail对象，提供给事件监听函数
+            var myEventOption = {} // 触发事件的选项
+            that.triggerEvent('myevent', myEventDetail, myEventOption)
+          },
+          error: function () {
+            wx.showToast({
+              title: '提交失败'
+            })
 
-          setTimeout(function () {
-            wx.hideToast();
-            wx.hideLoading()
-          }, 500)
-        }
-      });
+            setTimeout(function () {
+              wx.hideToast();
+              wx.hideLoading()
+            }, 500)
+          }
+        });
+      }else{
+        wx.request({
+          url: defalutUrl + '/textaresSubmit?name=' + that.data.proTitle,
+          header: {
+            'Content-Type': 'application/json'
+          },
+          data: { id: 0, name: that.data.name, text: that.data.data, time: that.formateDate('-'), className: that.data.words + '-box', userRepay: '' },
+          method: 'POST',
+          success: function (res) {
+            // console.log(res.data.data)
+            that.setData({
+              placeholderValue: ''
+            })
+            that.setData({
+              isdiabled: true
+            })
+
+            // console.log(res.data.data.res)
+            wx.showToast({
+              title: '提交成功'
+            })
+            setTimeout(function () {
+              wx.hideToast();
+              wx.hideLoading()
+            }, 500)
+            //子组件给父组件传值
+            var myEventDetail = { data: that.data.data, name: that.data.name, className: that.data.words + '-box' } // detail对象，提供给事件监听函数
+            var myEventOption = {} // 触发事件的选项
+            that.triggerEvent('myevent', myEventDetail, myEventOption)
+          },
+          error: function () {
+            wx.showToast({
+              title: '提交失败'
+            })
+
+            setTimeout(function () {
+              wx.hideToast();
+              wx.hideLoading()
+            }, 500)
+          }
+        });
+      }
+  
     },
     //输入有效字符（不为空，不为空格才会提交）
     checklength:function(e){

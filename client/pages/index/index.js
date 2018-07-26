@@ -42,6 +42,7 @@ Page({
   onReady:function() {
     //选择当前的标签
     this.obj = this.selectComponent("#isLeft");
+    wx.hideLoading();
   },
   onPageNotFound:function(){
     wx.navigateTo({
@@ -51,6 +52,9 @@ Page({
   onLoad: function(){
     this.setData({
       curUrl:this.route
+    })
+    wx.showLoading({
+      title: '加载中',
     })
     var that = this;
     wx.request({
@@ -72,6 +76,7 @@ Page({
         wx.setNavigationBarTitle({
           title: that.data.topNavtitle,
         })
+        wx.hideLoading()
       },
       error:function(a){
         console.log(a);

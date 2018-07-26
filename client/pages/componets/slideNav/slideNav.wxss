@@ -27,3 +27,5 @@ button.disabled{display: none;}
 .section__ctn .imgbox image{ position: absolute; left: 50%; top: 0; z-index: 65; margin-left:-42.5%;}
  .section__ctn .imgbox image:nth-child(2){ z-index: 64;margin-left:-12.5%;} 
  .title .text{ padding: 0 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+ .text-icon-tips{position: absolute; right: 4px; top:-2px; font-size: 11px; color:#fff;z-index: 1000; display: block; text-align: center; background-color: #FF8247; padding:0 4px; height: 16px;line-height: 16px;border-radius: 8px; box-shadow: 2px 2px 3px rgba(0,0,0,.2)}
+.text-icon-tips.new{background-color: #00BFFF}

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "tabBar-component": "../componets/tabBar/tabBar"
+    "tabBar-component": "../componets/tabBar/tabBar",
+    "messages-component": "../componets/messages/messages"
   },
   "enablePullDownRefresh": true
 }
