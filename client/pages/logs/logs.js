@@ -109,6 +109,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '正在加载'
     });
+    //init data
+    this.initArrData();
     //在标题栏中显示加载图标  
     wx.showNavigationBarLoading();
     //根据实际情况定义请求的路径  
@@ -163,6 +165,14 @@ Page({
     var mi = data.getMinutes();
     var s = data.getSeconds();
     return y + contact + mo + contact + d + ' ' + ' ' + h + ':' + mi + ':' + s
+  },
+  //初始化数据
+  initArrData: function () {
+    this.setData({
+      ArryListYYS: [],
+      ArryListSS: [],
+      floorArry:[]
+    });
   },
   //监听子组件提交成功事件
   myEventListener: function (e) {

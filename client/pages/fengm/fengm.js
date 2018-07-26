@@ -63,6 +63,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '正在加载'
     });
+    //init data
+    this.initArrData()
     //在标题栏中显示加载图标  
     wx.showNavigationBarLoading();
     //根据实际情况定义请求的路径  
@@ -246,5 +248,10 @@ Page({
         }
       })
     }
-  }
+  },
+  initArrData: function () {
+    this.setData({
+      fengmTable: []
+    })
+  },
 })
